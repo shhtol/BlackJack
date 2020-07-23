@@ -2,7 +2,7 @@
 
 using namespace std;
 
-enum  Nominal {
+enum  rank {
         Ace,
         two,
         three,
@@ -17,16 +17,17 @@ enum  Nominal {
         Queen,
         King };
         
-enum Suit {Hearts, Diamonds, Spade, Clubs};
+enum suit {Hearts, Diamonds, Spade, Clubs};
+
 class Card {
     
     public: 
     Card () {
-        flipPos = false;
+        m_IsFaceUp = false;
     }
     bool Flip() {
-        flipPos = !flipPos;
-        return flipPos;
+        m_IsFaceUp = !m_IsFaceUp;
+        return m_IsFaceUp;
     }
    
     int GetValue(Nominal n) {
@@ -48,9 +49,9 @@ class Card {
 }
     
     private:
-    bool flipPos;
-    Nominal nominal;
-    Suit suit;   
+    bool m_IsFaceUp;
+    rank m_Rank;
+    suit Suit ;   
 };
 
 int main()
