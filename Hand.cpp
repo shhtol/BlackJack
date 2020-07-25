@@ -40,7 +40,4 @@ class Hand {
     
     private:
     vector<Card*> m_Cards;
-    
-    
 };
-
