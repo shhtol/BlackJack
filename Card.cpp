@@ -2,8 +2,11 @@
 
 using namespace std;
 
-enum  rank {
-        Ace,
+class Card {
+    
+    public:
+    enum  rank {
+        Ace = 1,
         two,
         three,
         four,
@@ -12,40 +15,26 @@ enum  rank {
         seven,
         eight,
         nine,
-        ten,
-        Jack,
-        Queen,
-        King };
+        ten = 10,
+        Jack = 10,
+        Queen = 10,
+        King = 10};
         
-enum suit {Hearts, Diamonds, Spade, Clubs};
-
-class Card {
+    enum suit {Hearts, Diamonds, Spade, Clubs}; 
     
-    public: 
-    Card () {
-        m_IsFaceUp = false;
-    }
-    bool Flip() {
+    Card(rank r, suit s, bool ifu) : m_Rank(r), Suit(s), m_IsFaceUp(ifu){}
+    
+    void Flip() {
         m_IsFaceUp = !m_IsFaceUp;
-        return m_IsFaceUp;
+        
     }
    
-    int GetValue(Nominal n) {
-        switch (n) {
-      case Ace:   return 1;
-      case two:   return 2; 
-      case three: return 3; 
-      case four:  return 4; 
-      case five:  return 5; 
-      case six:   return 6; 
-      case seven: return 7; 
-      case eight: return 8; 
-      case nine:  return 9; 
-      case ten:
-      case Jack:
-      case Queen: 
-      case King: return 10;
-     }
+    int GetValue() const{
+        int value = 0;
+        if(m_IsFaceUp) {
+            value = m_Rank;
+        }
+       return value;
 }
     
     private:
@@ -53,12 +42,3 @@ class Card {
     rank m_Rank;
     suit Suit ;   
 };
-
-int main()
-{   Card c;
-    
-    cout <<  c.Flip() << endl;
-    cout << c.GetValue(two) << endl;
-    cout << c.GetValue(Jack) << endl;
-    return 0;
-}
