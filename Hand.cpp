@@ -9,6 +9,7 @@ class Hand {
        //?
     }
     
+    
     void Add(Card* pCard) {
         m_Cards.push_back(pCard);
     }
@@ -20,8 +21,9 @@ class Hand {
         m_Cards.clear();
     }
     
-    int GetTotal(){
+    int GetTotal() const{
         if(m_Cards.empty()) return 0;
+        if(m_Cards[0]->GetValue() == 0) return 0;
         bool isAce = false;
         int counter = 0;
         for(auto it = m_Cards.begin(); it != m_Cards.end(); it++) {
@@ -30,6 +32,10 @@ class Hand {
         }
         if(isAce && counter <= 11) counter += 10;
         return counter;
+    }
+ 
+    ~Hand () {
+        Clear();
     }
     
     private:
