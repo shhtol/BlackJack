@@ -6,7 +6,7 @@ using namespace std;
 class Hand {
     public:
     Hand () {
-       //?
+       m_cards.reserve(7);
     }
     
     
