@@ -13,7 +13,7 @@ class Game {
     public:
     Game(vector<string>& names) {
     vector<string>::const_iterator pName;
-         for (pName = names.begin(): pName != names.end(); pName++)
+         for (pName = names.begin(); pName != names.end(); pName++)
             {
                     players.push_back(Player(*pName)):
             }
