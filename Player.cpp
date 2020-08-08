@@ -1,9 +1,6 @@
-#include <iostream>
-using namespace std;
-
 class Player : public GenericPlayer {
     public:
-    Player (const string& name) : GenericPlayer(name) {}
+    Player (const string& name = "") : GenericPlayer(name) {}
     bool IsHitting() const {
         bool b;
         cout << "One more card? 0 - no, 1 - yes" << endl;
