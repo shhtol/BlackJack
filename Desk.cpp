@@ -1,13 +1,10 @@
-#include <algorithm>
-using namespace std;
-
 class Desk : public Hand {
     public:
     void Populate() {
         Clear();
-        for(int s = Card::Hearts; int s != Card::Clubs; s++){
-            for(int r = Card::Ace; int r != Card::King; r++){
-                Add(new Card(static_cast<Card::suit>(s), static_cast<Card::rank>(r)));
+        for(int s = Card::Hearts; s != Card::Clubs; s++){
+            for(int r = Card::Ace; r != Card::King; r++){
+                Add(new Card(static_cast<Card::rank>(r), static_cast<Card::suit>(s)));
             }
         }
     }
@@ -19,17 +16,16 @@ class Desk : public Hand {
         random_shuffle(m_Cards.begin(), m_Cards.end());
     }
     
-    vold Deal (Hand& aHand) {
+    void Deal (Hand& aHand) {
         aHand.Add(m_Cards.back());
         m_Cards.pop_back();
     }
     
-    void AddltionalCards (GenericPlayer& aGenerlcPlayer){
-        while (!(aGenericPlayer.IsBusted()) && aGenericPlayer.IsHitting()) {
+    void AdditionalCards (GenericPlayer& aGenericPlayer){
+        while (!(aGenericPlayer.IsBoosted()) && aGenericPlayer.IsHitting()) {
             Deal(aGenericPlayer);
-            if (aGenericPlayer.IsBusted()){aGenericPlayer.Bust();}
+            if (aGenericPlayer.IsBoosted()){aGenericPlayer.Bust();}
         }
     }
     
 };
-
