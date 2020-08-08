@@ -1,9 +1,6 @@
-
-using namespace std;
-
 class House : public GenericPlayer {
     public:
-    House (const string& name) : GenericPlayer(name) {}
+    House (const string& name = "House") : GenericPlayer(name) {}
     bool IsHitting() const {
         if(GetTotal() < 16) return true;
         return false;
