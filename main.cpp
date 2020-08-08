@@ -1,5 +1,12 @@
 #include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <stdlib.h>
+#include <time.h>
+
 using namespace std;
+
 int main()
 {
     cout << "\t\tWelcome to Blackjack!\n\n";
@@ -25,13 +32,10 @@ int main()
     char again = 'y';
     while (again != 'n' && again != 'N')
     {
-        aGame.Play();
+        aGame.Plау();
         cout << "\nDo you want to play again? (Y/N): ";
         cin >> again;
     }
     
     return 0;
 }
-
-
-
