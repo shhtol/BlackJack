@@ -1,12 +1,7 @@
-#include <vector>
-#include "card.h"
- 
-using namespace std;
-
 class Hand {
     public:
     Hand () {
-       m_cards.reserve(7);
+       m_Cards.reserve(7);
     }
     
     
@@ -28,7 +23,7 @@ class Hand {
         int counter = 0;
         for(auto it = m_Cards.begin(); it != m_Cards.end(); it++) {
             counter += (*it)->GetValue();
-            if((*it)->GetValue == 1) {isAce = true;}
+            if((*it)->GetValue() == 1) {isAce = true;}
         }
         if(isAce && counter <= 11) counter += 10;
         return counter;
@@ -38,6 +33,6 @@ class Hand {
         Clear();
     }
     
-    private:
+    protected:
     vector<Card*> m_Cards;
 };
