@@ -1,9 +1,5 @@
-#include <iostream>
-
-using namespace std;
-
 class Card {
-    
+  
     public:
     enum  rank {
         Ace = 1,
@@ -22,7 +18,7 @@ class Card {
         
     enum suit {Hearts, Diamonds, Spade, Clubs}; 
     
-    Card(rank r, suit s, bool ifu) : m_Rank(r), Suit(s), m_IsFaceUp(ifu){}
+    Card(rank r, suit s, bool ifu = true) : m_Rank(r), Suit(s), m_IsFaceUp(ifu){}
     
     void Flip() {
         m_IsFaceUp = !m_IsFaceUp;
@@ -39,16 +35,16 @@ class Card {
     friend ostream& operator<<(ostream& os, const Card& c) {
         const string ranks[] = {"О", "А", "2", "З", "4", "5", "6", "7", "8", "9",
                 "10", "J", "Q", "К"};
-        const string suits[J ={"h", "d", "s", "c"};
+        const string suits [] = {"h", "d", "s", "c"};
         if (c.m_IsFaceUp)
             {
-            os << ranks[c.m_RankJ << suits[c.m_Suit];
+            os << ranks[c.m_Rank] << suits[c.Suit];
             }
         else
             {
             os << "ХХ";
             }
-return os;
+     return os;
     }
     
     private:
